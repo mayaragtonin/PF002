@@ -42,5 +42,20 @@ soup2, text2 = get_text(url2)
 soup3, text3 = get_text(url3)
 
 # Comparar os textos dos artigos das sessões
-for item in text0:
-    print(item)
+def get_arts(text):
+    artigos = {}
+    iter = 0
+    chave = 'Art' + str(iter)
+    artigos[chave] = []
+    for item in text:
+        if 'Art' in item:
+            iter += 1
+            chave = 'Art' + str(iter)
+            artigos[chave]=[]
+        artigos[chave].append(item)
+    return artigos
+
+arts0 = get_arts(text0)
+arts1 = get_arts(text1)
+arts2 = get_arts(text2)
+arts3 = get_arts(text3)
